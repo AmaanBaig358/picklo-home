@@ -1,0 +1,86 @@
+* * * * * C:\xampp\php\php.exe /C:\xampp\htdocs\escort/artisan packages:expire > /dev/null 2>&1
+
+
+C:\xampp\htdocs\escort\artisan packages:expire
+
+C:\xampp\htdocs\escort\artisan packages:expire
+
+Client ID
+AT5sriG61vcAodXCaFX9n3CW1AA3NjgP-lwKooZJAchdyHyu9HKnucoKW3i2oCxza2CNr4dSwBA9UFm7
+
+Secret key 1
+EKgfTSrU16g7RkWcEtWcAK1f9q49fekOfiUvE-Mzn1lSzMBBQwpm9zX4Sf3chjMVmn-bKpaaDixfruGO
+
+
+
+https://martinbackend.tripcouncel.com/api/admin/user-packages?user_id=36&package_id=2&start_date=2025-01-25&end_date=2025-01-26&status=Active
+
+
+
+
+
+
+
+2. Test the createPayment API:
+Once your application is set up and the PayPal credentials are configured, you can test the createPayment function:
+
+Start your app: Make sure your Laravel app is running (php artisan serve or similar).
+
+Test the Endpoint:
+
+Use a REST client like Postman or Insomnia to send a POST request to the createPayment endpoint.
+URL: http://localhost:8000/api/paypal/create-payment
+Body (JSON):
+json
+Copy
+{
+  "package_id": 1
+}
+Replace 1 with an actual package_id that exists in your user_packages table.
+Expected Response: If the package ID exists and the request is successful, you should receive a response like this:
+
+json
+Copy
+{
+  "status": "success",
+  "redirect_url": "https://www.paypal.com/checkoutnow?token=xxxxxxxxxx"
+}
+The redirect_url will be a PayPal checkout URL where you can proceed with the payment.
+
+3. Test the PayPal Checkout:
+Copy the redirect_url from the response and open it in your browser.
+Complete the payment process using the PayPal sandbox account.
+4. Test the capturePayment API:
+After the payment is made, PayPal will redirect to your capture payment endpoint. Here's how to test it:
+
+Test the Endpoint:
+
+Once you've completed the payment process on PayPal, PayPal will redirect to your capturePayment endpoint with a token parameter in the URL, like so:
+bash
+Copy
+http://localhost:8000/api/paypal/capture-payment?token=xxxxxxxxxx
+Use a tool like Postman or Insomnia to send a POST request to capture-payment, including the token and package ID:
+URL: http://localhost:8000/api/paypal/capture-payment
+Body (JSON):
+json
+Copy
+{
+  "token": "xxxxxxxxxx",
+  "package_id": 1
+}
+Expected Response: If the payment was successful and the package ID exists, you should receive a response like this:
+
+json
+Copy
+{
+  "status": "success",
+  "message": "Payment completed successfully."
+}
+If there was an issue with the payment, the response would indicate an error, like:
+
+json
+Copy
+{
+  "status": "error",
+  "message": "Payment failed or was not completed. Please try again."
+}
