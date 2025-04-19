@@ -45,6 +45,7 @@
             display: inline-block;
             width: 35%;
         }
+<<<<<<< HEAD
         .leftside-menu.menuitem-active {
             background: rgb(67,159,199);
             background: linear-gradient(38deg, rgba(67,159,199,1) 25%, rgba(57,128,74,1) 75%);
@@ -52,6 +53,31 @@
         div#leftside-menu-container {
             background: rgb(67,159,199);
             background: linear-gradient(38deg, rgba(67,159,199,1) 25%, rgba(57,128,74,1) 75%);
+=======
+        table.dataTable tbody tr.even td, table.dataTable tbody tr.odd td{
+           color: #6C6C6C !important;
+        }
+        .leftside-menu.menuitem-active {
+            background: rgb(64, 128, 21);
+        }
+        div#leftside-menu-container {
+            .leftside-menu.menuitem-active {
+                background: rgb(64, 128, 21);
+            }
+        }
+        h2.mb-5 {
+            color: #525c5c!important;
+        }
+
+        .bg-info {
+            --ct-bg-opacity: 1;
+            /* background-color: rgba(var(--ct-info-rgb), var(--ct-bg-opacity)) !important; */
+            background-color: #2E99C2 !important;
+        }
+        html[data-sidenav-size=condensed]:not([data-layout=topnav]) .wrapper .leftside-menu .logo {
+            z-index: 1;
+            background: rgb(64, 128, 21);
+>>>>>>> 721f0e5 (First commit)
         }
         .side-nav .side-nav-link {
              color: #ffffff;
@@ -63,11 +89,22 @@
             color: #ffffff !important;
         }
         li.breadcrumb-item a {
+<<<<<<< HEAD
              color: #0f4c2c;
+=======
+             color:rgb(64, 128, 21);
+>>>>>>> 721f0e5 (First commit)
          }
         .page-title {
             color: #0f4c2c;
         }
+<<<<<<< HEAD
+=======
+
+        .side-nav .side-nav-link {
+            color: #ffffff;
+        }
+>>>>>>> 721f0e5 (First commit)
         a.logo.logo-light {
             /*background: rgb(67,159,199);*/
             /*background: linear-gradient(38deg, rgba(67,159,199,1) 25%, rgba(57,128,74,1) 75%);*/
@@ -79,11 +116,16 @@
         html[data-sidenav-size=condensed]:not([data-layout=topnav]) .wrapper .leftside-menu .side-nav .side-nav-item:hover .side-nav-link {
             position: relative;
             color: #fff;
+<<<<<<< HEAD
             background: #2a7c51;
+=======
+            background: rgb(64, 128, 21)!important;
+>>>>>>> 721f0e5 (First commit)
             width: var(--ct-leftbar-width);
         }
 
         .btn {
+<<<<<<< HEAD
             box-shadow: 0 5px 5px #34814b !important;
             border: 1px solid #4398b1 !important;
             color: #ffff !important;
@@ -93,6 +135,17 @@
             box-shadow: 0 5px 5px #34814b;
             border: 1px solid #4398b1 !important;
             background: #459abb !important;
+=======
+            /*box-shadow: 0 5px 5px #34814b !important;*/
+            border: 1px solid rgb(64, 128, 21) !important;
+            color: #ffff !important;
+            background: rgb(64, 128, 21)!important;
+        }
+        .active>.page-link {
+            /*box-shadow: 0 5px 5px #34814b;*/
+            /*border: 1px solid #4398b1 !important;*/
+            background: rgb(64, 128, 21)!important;
+>>>>>>> 721f0e5 (First commit)
         }
         .ms-3 {
             margin-left: 0.5rem !important;
@@ -108,7 +161,11 @@
             width: var(--ct-leftbar-width);
             min-width: var(--ct-leftbar-width);
             padding-bottom: calc(var(--ct-footer-height) + .75rem);
+<<<<<<< HEAD
             background: #34804a;
+=======
+            background:  rgb(64, 128, 21);;
+>>>>>>> 721f0e5 (First commit)
             -webkit-box-shadow: var(--ct-box-shadow);
             box-shadow: var(--ct-box-shadow);
             border-right: var(--ct-theme-card-border-width) solid var(--ct-border-color);
@@ -116,9 +173,16 @@
             transition: all .25s ease-in-out;
         }
         .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+<<<<<<< HEAD
             box-shadow: 0 5px 5px #34814b;
             border: 1px solid #4398b1 !important;
             background: #459abb !important;
+=======
+            /*box-shadow: 0 5px 5px #34814b;*/
+            /*border: 1px solid #4398b1 !important;*/
+
+            background: rgb(64, 128, 21)!important;
+>>>>>>> 721f0e5 (First commit)
         }
 
         a.show-lead {
@@ -131,7 +195,11 @@
         }
 
         .select2-container--default .select2-selection--multiple .select2-selection__choice {
+<<<<<<< HEAD
             background-color: #4898bb !important;
+=======
+            background: rgb(64, 128, 21)!important;
+>>>>>>> 721f0e5 (First commit)
             border: 1px solid #aaa;
             border-radius: 4px;
             cursor: default;

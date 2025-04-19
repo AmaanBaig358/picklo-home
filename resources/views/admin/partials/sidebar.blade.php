@@ -64,6 +64,7 @@
             </li>
 
             <li class="side-nav-title">Apps</li>
+<<<<<<< HEAD
 {{--            <li class="side-nav-item">--}}
 {{--                <a--}}
 {{--                        data-bs-toggle="collapse"--}}
@@ -111,6 +112,93 @@
                 </a>
             </li>
 
+=======
+            <li class="side-nav-item">
+                <a
+                        data-bs-toggle="collapse"
+                        href="#sidebarEmail"
+                        aria-expanded="false"
+                        aria-controls="sidebarEmail"
+                        class="side-nav-link"
+                >
+                    <i class="ri-mail-line"></i>
+                    <span> Leads </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarEmail">
+                    <ul class="side-nav-second-level">
+                        <li>
+
+                            <a href="{{route('admin.manage.lead') }}">Lead</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.user.followup')}}">Follow Ups</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+
+
+
+
+{{--            <li class="side-nav-item">--}}
+{{--                <a href="{{ route('admin.manage.lead') }}" class="side-nav-link">--}}
+{{--                    <i class="ri-mail-line"></i>--}}
+{{--                    <span> Leads </span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+
+{{--            <li class="side-nav-item">--}}
+{{--                <a href="{{ route('admin.user.followup') }}" class="side-nav-link">--}}
+{{--                    <i class="ri-list-check-3"></i>--}}
+{{--                    <span> Follow Ups </span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+
+
+
+            <li class="side-nav-item">
+                <a
+                    data-bs-toggle="collapse"
+                    href="#sidebarclient"
+                    aria-expanded="{{ isset($client) ? 'true' : 'false' }}"
+                    aria-controls="sidebarclient"
+                    class="side-nav-link"
+                >
+                    <i class="ri-mail-line"></i>
+                    <span> Clients </span>
+                    <span class="menu-arrow"></span>
+                </a>
+
+                <div class="collapse {{ isset($client) ? 'show' : '' }}" id="sidebarclient">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('admin.manage.client') }}">Client</a>
+                        </li>
+
+                        @isset($client)
+                            <li>
+                                <a href="{{ route('admin.manage.project.management', $client->faker_id) }}">
+                                    <i class="ri-settings-3-line"></i>
+                                    <span>Project Management</span>
+                                </a>
+                            </li>
+                        @endisset
+                    </ul>
+                </div>
+            </li>
+
+
+            {{--            <li class="side-nav-item">--}}
+{{--                <a href="{{ route('admin.manage.client') }}" class="side-nav-link">--}}
+{{--                    <i class="ri-mail-line"></i>--}}
+{{--                    <span> Clients </span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+
+>>>>>>> 721f0e5 (First commit)
             <li class="side-nav-item">
                 <a href="{{ route('admin.manage.file') }}" class="side-nav-link">
                     <i class="ri-folder-2-line"></i>
@@ -118,6 +206,7 @@
                 </a>
             </li>
 
+<<<<<<< HEAD
             <li class="side-nav-item">
                 <a
                         data-bs-toggle="collapse"
@@ -141,6 +230,31 @@
                     </ul>
                 </div>
             </li>
+=======
+{{--            <li class="side-nav-item">--}}
+{{--                <a--}}
+{{--                        data-bs-toggle="collapse"--}}
+{{--                        href="#sidebarCategorys"--}}
+{{--                        aria-expanded="false"--}}
+{{--                        aria-controls="#sidebarCategorys"--}}
+{{--                        class="side-nav-link"--}}
+{{--                >--}}
+{{--                    <i class="ri-task-line"></i>--}}
+{{--                    <span> Phases & Tasks </span>--}}
+{{--                    <span class="menu-arrow"></span>--}}
+{{--                </a>--}}
+{{--                <div class="collapse" id="sidebarCategorys">--}}
+{{--                    <ul class="side-nav-second-level">--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.manage.pre.category') }}">Phases</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('admin.manage.pre.task') }}">Tasks</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </li>--}}
+>>>>>>> 721f0e5 (First commit)
 
 
 
@@ -179,6 +293,16 @@
 {{--                                    <a href="{{ route('admin.create.user') }}">Add New</a>--}}
 {{--                                </li>--}}
 {{--                            @endcan--}}
+<<<<<<< HEAD
+=======
+
+                                <li>
+                                    <a href="{{route('admin.manage.pre.category') }}">Phases</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('admin.manage.pre.task') }}">Tasks</a>
+                                </li>
+>>>>>>> 721f0e5 (First commit)
                         </ul>
                     </div>
                 </li>

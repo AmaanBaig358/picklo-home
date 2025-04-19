@@ -10,7 +10,10 @@ class PreTask extends Model
     protected $fillable = [
         'category_id',
         'title',
+<<<<<<< HEAD
         'duration',
+=======
+>>>>>>> 721f0e5 (First commit)
     ];
 
     public function precategory()

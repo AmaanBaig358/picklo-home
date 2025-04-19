@@ -11,8 +11,13 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">followUp</a></li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.user.followup') }}">FollowUp</a></li>
+>>>>>>> 721f0e5 (First commit)
                                     <li class="breadcrumb-item active">Manage Follow-Ups</li>
                                 </ol>
                             </div>

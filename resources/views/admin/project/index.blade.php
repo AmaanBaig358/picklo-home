@@ -20,9 +20,14 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">{{ $title }} </a></li>
                                     <li class="breadcrumb-item active">Manage</li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item active">{{ $title }}</li>
+>>>>>>> 721f0e5 (First commit)
                                 </ol>
                             </div>
                             <div class="d-flex w-100">

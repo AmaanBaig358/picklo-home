@@ -21,6 +21,24 @@ class ProjectController extends Controller
         return view('admin.project.index', compact('title', 'clientProjects'));
     }
 
+<<<<<<< HEAD
+=======
+    public function sidebar($clientId)
+    {
+        $title = 'Manage Project';
+        $clientId = FakerURL::id_d($clientId);
+
+        $client = Client::findOrFail($clientId); // 🔥 Add this line
+
+        $clientProjects = Project::where('client_id', $clientId)
+            ->with('client')
+            ->orderByDesc('created_at')
+            ->get();
+
+        return view('admin.project.index', compact('title', 'clientProjects', 'client'));
+    }
+
+>>>>>>> 721f0e5 (First commit)
     public function create($clientId)
     {
         $title = 'Create Project';
@@ -162,6 +180,12 @@ class ProjectController extends Controller
     }
 
 
+<<<<<<< HEAD
+=======
+
+
+    //HELPER FUNCTION
+>>>>>>> 721f0e5 (First commit)
     private function storeMediaFiles($files, $project, $mediaType) {
         foreach ($files as $file) {
             $folderPath = public_path("uploads/project-images/{$project->name}");
@@ -180,4 +204,8 @@ class ProjectController extends Controller
             ]);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 721f0e5 (First commit)

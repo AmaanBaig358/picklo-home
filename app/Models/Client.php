@@ -45,5 +45,8 @@ class Client extends Model
     {
         return $this->hasMany(Project::class);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 721f0e5 (First commit)
 }

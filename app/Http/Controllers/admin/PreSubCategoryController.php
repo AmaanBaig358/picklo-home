@@ -10,9 +10,14 @@ class PreSubCategoryController extends Controller
 {
     public function index()
     {
+<<<<<<< HEAD
         $title = 'Manage Pre Sub Categories';
         $preCategories = SubPreCategory::get();
         return view('admin.pre-category.index', compact('title', 'preCategories'));
+=======
+        $preCategories = SubPreCategory::get();
+        return view('admin.pre-category.index', compact( 'preCategories'));
+>>>>>>> 721f0e5 (First commit)
     }
 
     public function store(Request $request)

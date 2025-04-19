@@ -27,8 +27,13 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Leads</a></li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.manage.lead') }}">Leads</a></li>
+>>>>>>> 721f0e5 (First commit)
                                     <li class="breadcrumb-item active">Add New Lead</li>
                                 </ol>
                             </div>
@@ -59,7 +64,11 @@
                                                     <option value="Project Type"> Project Type </option>
                                                     <option value="Home">Home</option>
                                                     <option value="Pool">Pool</option>
+<<<<<<< HEAD
                                                     <option value="Remode">Remode</option>
+=======
+                                                    <option value="Remodel">Remodel</option>
+>>>>>>> 721f0e5 (First commit)
                                                     <option value="Addition">Addition</option>
                                                 </select>
                                             </div>

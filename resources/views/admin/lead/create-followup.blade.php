@@ -72,8 +72,13 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Client Follow-Ups</a></li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.client.followUp', $lead->faker_id) }}">Client Follow-Ups</a></li>
+>>>>>>> 721f0e5 (First commit)
                                     <li class="breadcrumb-item active">Add New Follow-Up</li>
                                 </ol>
                             </div>
@@ -88,7 +93,11 @@
                                 <form action="{{ route('admin.store.client.followUp', $lead->faker_id) }}" method="POST" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
+<<<<<<< HEAD
                                         <label for="user_id" class="form-label">Client Name</label>
+=======
+                                        <label for="user_id" class="form-label">Lead Name</label>
+>>>>>>> 721f0e5 (First commit)
                                         <input type="text" name="client_name" class="form-control" value="{{ $lead->client_name }}" disabled>
                                     </div>
                                     <div class="mb-3">

@@ -72,8 +72,13 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Client Follow-Ups</a></li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.user.followup') }}">Client Follow-Ups</a></li>
+>>>>>>> 721f0e5 (First commit)
                                     <li class="breadcrumb-item active">Edit Follow-Up</li>
                                 </ol>
                             </div>
@@ -91,17 +96,29 @@
                                     <div class="row">
                                         @if($followUp->client)
                                             <div class="col-lg-6 mb-3">
+<<<<<<< HEAD
                                                 <label class="form-label">Client Name</label>
+=======
+                                                <label class="form-label">Lead Name</label>
+>>>>>>> 721f0e5 (First commit)
                                                 <input type="text" class="form-control" value="{{ $followUp->client->client_name }}" disabled>
                                             </div>
 
                                             <div class="col-lg-6 mb-3">
+<<<<<<< HEAD
                                                 <label class="form-label">Client Phone</label>
+=======
+                                                <label class="form-label">Lead Phone</label>
+>>>>>>> 721f0e5 (First commit)
                                                 <input type="text" class="form-control" value="{{ $followUp->client->client_phone }}" disabled>
                                             </div>
 
                                             <div class="col-lg-6 mb-3">
+<<<<<<< HEAD
                                                 <label class="form-label">Client Email</label>
+=======
+                                                <label class="form-label">Lead Email</label>
+>>>>>>> 721f0e5 (First commit)
                                                 <input type="text" class="form-control" value="{{ $followUp->client->client_email }}" disabled>
                                             </div>
                                         @endif

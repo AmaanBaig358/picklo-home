@@ -11,8 +11,13 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Tasks</a></li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.manage.pre.task') }}">Tasks</a></li>
+>>>>>>> 721f0e5 (First commit)
                                     <li class="breadcrumb-item active">{{$title}}</li>
                                 </ol>
                             </div>
@@ -85,7 +90,11 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+<<<<<<< HEAD
                 <h4 class="modal-title" id="NewTaskModalLabel">{{$title}}</h4>
+=======
+                <h4 class="modal-title" id="NewTaskModalLabel">Create Task</h4>
+>>>>>>> 721f0e5 (First commit)
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -139,7 +148,11 @@
 
                     <div class="mb-3">
                         <label for="task-description" class="form-label">Category</label>
+<<<<<<< HEAD
                         <select class="form-control" name="category_id" id="category_id" required>
+=======
+                        <select class="form-control" name="category_id" id="edit_category_id" required>
+>>>>>>> 721f0e5 (First commit)
                             <option value="">Select a Category</option>
                             @foreach($preCategories as $preCategory)
                                 <option value="{{ $preCategory->id }}">
@@ -163,8 +176,12 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 <div class="modal fade" id="view-task-modal" tabindex="-1" role="dialog" aria-labelledby="ViewTaskModalLabel"
      aria-hidden="true">
+=======
+<div class="modal fade" id="view-task-modal" tabindex="-1" role="dialog" aria-labelledby="ViewTaskModalLabel" aria-hidden="true">
+>>>>>>> 721f0e5 (First commit)
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -174,6 +191,7 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label class="form-label fw-bold">Title:</label>
+<<<<<<< HEAD
                     <p id="view_task_title"></p>
                 </div>
                 <div class="mb-3">
@@ -190,6 +208,14 @@
                 </div>
 
 
+=======
+                    <p id="view_task_title"></p> <!-- Task title will be inserted here -->
+                </div>
+                <div class="mb-3">
+                    <label for="view_task_category_name" class="form-label fw-bold">Category:</label>
+                    <p id="view_task_category_name"></p>
+                </div>
+>>>>>>> 721f0e5 (First commit)
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
@@ -197,6 +223,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 @push('scripts')
     <script>
 
@@ -204,10 +231,21 @@
             $("#task_title").keyup(function () {
                 var enteredValue = $(this).val();
                 var slug = enteredValue
+=======
+
+
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            // Slug generation for Add form
+            $("#task_title").on('keyup', function () {
+                let slug = $(this).val()
+>>>>>>> 721f0e5 (First commit)
                     .toLowerCase()
                     .replace(/[^a-z0-9\s-]/g, "")
                     .replace(/\s+/g, "-")
                     .replace(/-+/g, "-");
+<<<<<<< HEAD
 
                 $("#slug").val(slug);
             });
@@ -243,16 +281,72 @@
                     }
                 },
                 error: function (xhr) {
+=======
+                $("#slug").val(slug);
+            });
+
+            // Slug generation for Edit form
+            $("#edit_task_title").on('keyup', function () {
+                let slug = $(this).val()
+                    .toLowerCase()
+                    .replace(/[^a-z0-9\s-]/g, "")
+                    .replace(/\s+/g, "-")
+                    .replace(/-+/g, "-");
+                $("#edit_task_slug").val(slug);
+            });
+        });
+
+        function editTask(task) {
+            $('#edit_task_id').val(task.id);
+            $('#edit_task_title').val(task.title);
+
+            let slug = task.title
+                .toLowerCase()
+                .replace(/[^a-z0-9\s-]/g, "")
+                .replace(/\s+/g, "-")
+                .replace(/-+/g, "-");
+            $('#edit_task_slug').val(slug);
+
+            // Set the correct category
+            $('#edit_category_id').val(task.category_id).change();
+
+            // Update form action
+            let actionUrl = "{{ route('admin.update.pre.task', ':id') }}";
+            actionUrl = actionUrl.replace(':id', task.id);
+            $('#edit-task-form').attr('action', actionUrl);
+        }
+        function viewTask(preTaskId) {
+            $.ajax({
+                url: "{{ route('admin.show.pre.task', '') }}/" + preTaskId, // Adjust URL as needed
+                type: "GET",
+                success: function (response) {
+                    if (response) {
+                        // Set the title of the task
+                        $('#view_task_title').text(response.title);
+
+                        // Set the category name, ensuring it's available
+                        $('#view_task_category_name').text(response.category_title);
+
+                        // Show the modal
+                        $('#view-task-modal').modal('show');
+                    }
+                },
+                error: function () {
+>>>>>>> 721f0e5 (First commit)
                     alert("Error fetching task details.");
                 }
             });
         }
+<<<<<<< HEAD
     </script>
 
 
     <script>
         function showConfirmBox(id) {
             // var paymentId = id;
+=======
+        function showConfirmBox(id) {
+>>>>>>> 721f0e5 (First commit)
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -261,6 +355,7 @@
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
+<<<<<<< HEAD
             }).then((result) = > {
                 if(result.isConfirmed
         )
@@ -313,4 +408,43 @@
 
     <!-- demo js -->
     <script src="{{ asset('admin-assets/js/pages/component.dragula.js')}}"></script>
+=======
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let url = '{{ route("admin.delete.pre.task", ":id") }}';
+                    url = url.replace(':id', id);
+
+                    axios.get(url)
+                        .then((response) => {
+                            if (response.data.success) {
+                                const row = document.getElementById('payment-row-' + id);
+                                if (row) {
+                                    row.style.transition = 'background-color 0.5s, opacity 0.5s';
+                                    row.style.opacity = 0;
+                                    row.style.backgroundColor = 'red';
+                                    setTimeout(() => {
+                                        row.remove();
+                                    }, 500);
+                                }
+
+                                Swal.fire(
+                                    'Deleted!',
+                                    response.data.message,
+                                    'success'
+                                );
+
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 2000);
+                            }
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                            Swal.fire('Error', 'Something went wrong.', 'error');
+                        });
+                }
+            });
+        }
+    </script>
+>>>>>>> 721f0e5 (First commit)
 @endpush

@@ -18,8 +18,13 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">{{ $title }}</a></li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item active">{{ $title }}</li>
+>>>>>>> 721f0e5 (First commit)
 
                                 </ol>
                             </div>
@@ -45,9 +50,15 @@
                                         <thead>
                                         <tr>
                                             <th>S No</th>
+<<<<<<< HEAD
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
+=======
+                                            <th>Lead Name</th>
+                                            <th> Lead Email</th>
+                                            <th> Lead Phone</th>
+>>>>>>> 721f0e5 (First commit)
 {{--                                            <th>Architect</th>--}}
                                             <th>Project Type</th>
                                             <th>Status</th>

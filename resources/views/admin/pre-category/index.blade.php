@@ -12,12 +12,21 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Tasks</a></li>
                                     <li class="breadcrumb-item active">{{$title}}</li>
                                 </ol>
                             </div>
                             <h4 class="page-title">{{$title}}
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.manage.pre.category') }}">Phases</a></li>
+                                    <li class="breadcrumb-item active">Manage Phases</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Manage Phases
+>>>>>>> 721f0e5 (First commit)
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#add-new-task-modal"
                                    class="btn btn-success btn-sm ms-3">Add New</a></h4>
                         </div>
@@ -37,8 +46,11 @@
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 721f0e5 (First commit)
                                     <tbody>
                                     @forelse($preCategories as $key => $preCategorie)
                                         <tr>
@@ -91,7 +103,11 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+<<<<<<< HEAD
                 <h4 class="modal-title" id="NewTaskModalLabel">{{$title}}</h4>
+=======
+                <h4 class="modal-title" id="NewTaskModalLabel">Create Phases</h4>
+>>>>>>> 721f0e5 (First commit)
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -139,13 +155,20 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+<<<<<<< HEAD
                 <h4 class="modal-title" id="EditTaskModalLabel">Edit Pre Category</h4>
+=======
+                <h4 class="modal-title" id="EditTaskModalLabel">Edit Phases</h4>
+>>>>>>> 721f0e5 (First commit)
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="edit-task-form" method="POST">
                     @csrf
+<<<<<<< HEAD
 
+=======
+>>>>>>> 721f0e5 (First commit)
                     <input type="hidden" id="edit_task_id" name="id">
                     <div class="mb-3">
                         <label for="edit_task_title" class="form-label">Title</label>
@@ -176,7 +199,11 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+<<<<<<< HEAD
                 <h4 class="modal-title" id="ViewTaskModalLabel">View Pre Category </h4>
+=======
+                <h4 class="modal-title" id="ViewTaskModalLabel">View Phases </h4>
+>>>>>>> 721f0e5 (First commit)
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -203,6 +230,7 @@
 
 @push('scripts')
     <script>
+<<<<<<< HEAD
 
         $(document).ready(function () {
             $("#task_title").keyup(function () {
@@ -243,10 +271,89 @@
                 },
                 error: function (xhr) {
                     alert("Error fetching task details.");
+=======
+        $(document).ready(function () {
+            $("#task_title").keyup(function () {
+                let slug = $(this).val()
+                    .toLowerCase()
+                    .replace(/[^a-z0-9\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-');
+                $("#slug").val(slug);
+            });
+        });
+
+        // Slug for Edit Modal
+        $("#edit_task_title").on('keyup', function () {
+            let slug = $(this).val()
+                .toLowerCase()
+                .replace(/[^a-z0-9\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-');
+            $("#edit_task_slug").val(slug);
+        });
+
+        function editTask(task) {
+            $('#edit_task_id').val(task.id);
+            $('#edit_task_title').val(task.title);
+            $('#edit_task_slug').val(task.slug);
+            $('#edit_task_description').val(task.description);
+
+            let actionUrl = "{{ route('admin.update.pre.category', ':id') }}".replace(':id', task.id);
+            $('#edit-task-form').attr('action', actionUrl);
+        }
+
+        function viewTask(id) {
+            $.ajax({
+                url: "{{ route('admin.show.pre.category', '') }}/" + id,
+                type: "GET",
+                success: function (res) {
+                    if (res) {
+                        $('#view_task_title').text(res.title);
+                        $('#view_task_slug').text(res.slug);
+                        $('#view_task_description').text(res.description);
+                        $('#view-task-modal').modal('show');
+                    }
+                },
+                error: function () {
+                    alert("Error fetching details.");
+                }
+            });
+        }
+
+        function showConfirmBox(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "This will be permanently deleted!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonColor: '#d33',
+                confirmButtonColor: '#3085d6',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let url = "{{ route('admin.delete.pre.category', ':id') }}".replace(':id', id);
+                    axios.get(url).then((res) => {
+                        if (res.data.success) {
+                            const row = document.getElementById('payment-row-' + id);
+                            if (row) {
+                                row.style.transition = 'opacity 0.5s, background-color 0.5s';
+                                row.style.backgroundColor = '#f8d7da';
+                                row.style.opacity = 0;
+                                setTimeout(() => row.remove(), 500);
+                            }
+                            Swal.fire('Deleted!', res.data.message, 'success');
+                            setTimeout(() => location.reload(), 2000);
+                        }
+                    }).catch((err) => {
+                        console.error(err);
+                    });
+>>>>>>> 721f0e5 (First commit)
                 }
             });
         }
     </script>
+<<<<<<< HEAD
 
 
     <script>
@@ -312,6 +419,8 @@
 
     <!-- demo js -->
     <script src="{{ asset('admin-assets/js/pages/component.dragula.js')}}"></script>
+=======
+>>>>>>> 721f0e5 (First commit)
 @endpush
 
 

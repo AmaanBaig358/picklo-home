@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers\admin;
 
+<<<<<<< HEAD
 use App\Models\Client;
 use App\Models\Clients;
 use App\Models\Leads;
 use App\Models\PreCategory;
 use App\Models\Project;
 use App\Models\Task;
+=======
+use App\Models\Clients;
+use App\Models\Leads;
+use App\Models\PreCategory;
+>>>>>>> 721f0e5 (First commit)
 use App\Models\TodoTask;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +24,11 @@ class PreTaskController extends Controller
 {
     public function index()
     {
+<<<<<<< HEAD
         $title = 'Manage Client Task';
+=======
+        $title = 'Manage Tasks';
+>>>>>>> 721f0e5 (First commit)
         $preCategories = PreCategory::get();
         $preTasks = PreTask::get();
         return view('admin.pre-task.index', compact('title', 'preCategories', 'preTasks'));
@@ -51,12 +61,20 @@ class PreTaskController extends Controller
 
     public function show($PreTaskId)
     {
+<<<<<<< HEAD
         $preTasks = PreTask::findOrFail($PreTaskId);
 
         if (!$preTasks) {
             return response()->json(['error' => ' Pre Task not found'], 404);
         }
         return response()->json($preTasks);
+=======
+        $preTask = PreTask::with('precategory')->findOrFail($PreTaskId);
+        return response()->json([
+            'title' => $preTask->title,
+            'category_title' => $preTask->precategory->title,
+        ]);
+>>>>>>> 721f0e5 (First commit)
     }
 
     public function destroy($PreTaskId)
@@ -70,6 +88,7 @@ class PreTaskController extends Controller
         }
     }
 
+<<<<<<< HEAD
     public function matureClient($projectId)
     {
         // Fetch categories with preTasks
@@ -101,11 +120,34 @@ class PreTaskController extends Controller
             'tasks.*' => 'exists:pre_tasks,id',
         ]);
         $client = Project::find($request->client_id);
+=======
+    public function matureClient($ClientId)
+    {
+        $categories = PreCategory::with('preTasks')->get();
+        $lead = Leads::with('tasks')->find(FakerURL::id_d($ClientId));
+        if (!$lead) {
+            return redirect()->back()->with('error', 'Lead not found.');
+        }
+        return view('admin.lead.mature', compact('categories', 'lead'));
+    }
+
+    public function assignTasks(Request $request)
+    {
+        $request->validate([
+            'client_id' => 'required|exists:clients,id',
+            'tasks' => 'required|array',
+            'tasks.*' => 'exists:pre_tasks,id',
+        ]);
+        $client = Clients::find($request->client_id);
+>>>>>>> 721f0e5 (First commit)
         if (!$client) {
             return redirect()->back()->with('error', 'Client not found.');
         }
         $client->tasks()->sync($request->tasks);
         return redirect()->back()->with('success', 'Tasks successfully assigned.');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 721f0e5 (First commit)
 }

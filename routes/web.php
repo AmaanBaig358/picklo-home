@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\admin\FollowUpController;
+<<<<<<< HEAD
 use App\Http\Controllers\admin\TaskController;
+=======
+>>>>>>> 721f0e5 (First commit)
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\UserController;
@@ -12,6 +15,10 @@ use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\PreCategoryController;
 use App\Http\Controllers\admin\PreSubCategoryController;
 use App\Http\Controllers\admin\PreTaskController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\admin\DashboardController;
+>>>>>>> 721f0e5 (First commit)
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +41,12 @@ Route::post('login', [AuthController::class, 'loginProcess'])->name('admin.login
 Route::middleware('auth')->group(function () {
 
 Route::get('logout', [AuthController::class, 'authLogout'])->name('admin.logout');
+<<<<<<< HEAD
 Route::get('dashboard', function (){ return view('admin.dashboard'); })->name('admin.dashboard');
+=======
+Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+//Route::get('dashboard', function (){ return view('admin.dashboard'); })->name('admin.dashboard');
+>>>>>>> 721f0e5 (First commit)
 
 // USER MANAGEMENT ROUTES START
 Route::get('manage-users', [UserController::class, 'index'])->name('admin.manage.users');
@@ -78,6 +90,11 @@ Route::get('delete-client/{ClientId}', [ClientController::class, 'destroy'])->na
     Route::get('create-client-project/{clientId}', [ProjectController::class, 'create'])->name('admin.create.client.project');
     Route::post('create-project', [ProjectController::class, 'store'])->name('admin.store.project');
     Route::get('manage-client-projects/{clientId}', [ProjectController::class, 'index'])->name('admin.manage.client.project');
+<<<<<<< HEAD
+=======
+    Route::get('admin/project/sidebar/{clientId}', [ProjectController::class, 'sidebar'])->name('admin.manage.project.management');
+
+>>>>>>> 721f0e5 (First commit)
     Route::get('show-client-project/{ProjectId}', [ProjectController::class, 'show'])->name('admin.show.client.project');
     Route::get('edit-client-project/{ProjectId}', [ProjectController::class, 'edit'])->name('admin.edit.client.project');
     Route::post('edit-project/{ProjectId}', [ProjectController::class, 'update'])->name('admin.update.project');
@@ -89,6 +106,7 @@ Route::get('project-followups/{projectId}', [FollowUpController::class, 'indexPr
 Route::get('create-project-followup/{projectId}', [FollowUpController::class, 'createProjectFollowUp'])->name('admin.create.project.followup');
 Route::post('store-project-followup/{projectId}', [FollowUpController::class, 'storeProjectFollowUp'])->name('admin.store.project.followup');
 Route::get('project-client-task/{projectId}', [ProjectController::class, 'indexProjectClientTask'])->name('admin.project.client.task');
+<<<<<<< HEAD
 Route::get('mature-client/{projectId}', [PreTaskController::class, 'matureClient'])->name('admin.client.task');
 //Route::post('assign-tasks', [PreTaskController::class, 'assignTasks'])->name('admin.assign.tasks');
 
@@ -96,6 +114,8 @@ Route::get('mature-client/{projectId}', [PreTaskController::class, 'matureClient
     Route::post('/tasks/save', [TaskController::class, 'store'])->name('tasks.save');
     Route::get('manage-project-task/{projectId}',[TaskController::class, 'projectIndex'])->name('project.tasks.save');
     Route::get('show-project-task/{taskId}',[TaskController::class, 'projectShow'])->name('project.tasks.show');
+=======
+>>>>>>> 721f0e5 (First commit)
 
 // MANAGE CLIENT PRE CATEGORY ROUTES START
 Route::get('manage-pre-category', [PreCategoryController::class, 'index'])->name('admin.manage.pre.category');
@@ -122,6 +142,11 @@ Route::post('create-pre-task', [PreTaskController::class, 'store'])->name('admin
 Route::get('show-pre-task/{PreTaskId}', [PreTaskController::class, 'show'])->name('admin.show.pre.task');
 Route::post('edit-pre-task/{PreTaskId}', [PreTaskController::class, 'update'])->name('admin.update.pre.task');
 Route::get('delete-pre-task/{PreTaskId}', [PreTaskController::class, 'destroy'])->name('admin.delete.pre.task');
+<<<<<<< HEAD
+=======
+Route::get('mature-client/{ClientId}', [PreTaskController::class, 'matureClient'])->name('admin.mature.lead');
+Route::post('assign-tasks', [PreTaskController::class, 'assignTasks'])->name('admin.assign.tasks');
+>>>>>>> 721f0e5 (First commit)
 Route::get('client-todo/{ClientId}', [LeadController::class, 'clientTodo'])->name('admin.client.todo');
 Route::post('client-todo', [LeadController::class, 'todoStore'])->name('admin.client.todo.store');
 Route::get('manage-client-todo/{ClientId}', [LeadController::class, 'manageTodo'])->name('admin.client.todo.manage');
@@ -130,21 +155,31 @@ Route::Post('update-todo-order', [LeadController::class, 'updateOrder'])->name('
 Route::get('client-follow-up/{ClientId}', [FollowUpController::class, 'clientFollowUpIndex'])->name('admin.client.followUp');
 Route::get('add-client-follow-up/{ClientId}', [FollowUpController::class, 'addClientFollowUp'])->name('admin.add.client.followUp');
 Route::post('store-client-follow-up/{ClientId}', [FollowUpController::class, 'storeClientFollowUp'])->name('admin.store.client.followUp');
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 721f0e5 (First commit)
 Route::get('follow-up-complete/{followId}', [FollowUpController::class, 'completeFollowUp'])->name('admin.complete.followup');
 Route::get('follow-up-edit/{followId}', [FollowUpController::class, 'editFollowUp'])->name('admin.edit.followup');
 Route::post('follow-up-update/{followId}', [FollowUpController::class, 'updateFollowUp'])->name('admin.update.followup');
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 721f0e5 (First commit)
 Route::get('user-followups', [FollowUpController::class, 'indexUserFollowUp'])->name('admin.user.followup');
 Route::get('create-user-followup', [FollowUpController::class, 'createUserFollowUp'])->name('admin.create.user.followup');
 Route::post('store-user-followup', [FollowUpController::class, 'storeUserFollowUp'])->name('admin.store.user.followup');
 Route::get('follow-up-detail/{followId}', [FollowUpController::class, 'detailFollowUp'])->name('admin.detail.followup');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 721f0e5 (First commit)
 });
 
 // ONLY VIEW ROUTES

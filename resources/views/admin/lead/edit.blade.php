@@ -27,9 +27,15 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Leads</a></li>
                                     <li class="breadcrumb-item active">Add New Client</li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.manage.lead') }}">Leads</a></li>
+                                    <li class="breadcrumb-item active">Edit Client</li>
+>>>>>>> 721f0e5 (First commit)
                                 </ol>
                             </div>
                             <h4 class="page-title">{{$title}}</h4>
@@ -45,11 +51,19 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-3">
+<<<<<<< HEAD
                                                 <label for="" class="form-label">Client Name</label>
                                                 <input type="text" class="form-control" placeholder="Enter Client Name" name="client_name" value="{{ $lead->client_name }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="" class="form-label">Client Phone </label>
+=======
+                                                <label for="" class="form-label">Lead Name</label>
+                                                <input type="text" class="form-control" placeholder="Enter Client Name" name="client_name" value="{{ $lead->client_name }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Lead Phone </label>
+>>>>>>> 721f0e5 (First commit)
                                                 <input type="text" class="form-control" placeholder="Enter Client Phone" name="client_phone" value="{{ $lead->client_phone }}">
                                             </div>
 
@@ -69,7 +83,11 @@
 
                                         <div class="col-lg-6">
                                             <div class="mb-3">
+<<<<<<< HEAD
                                                 <label class="form-label">Client Email</label>
+=======
+                                                <label class="form-label">Lead Email</label>
+>>>>>>> 721f0e5 (First commit)
                                                 <input type="email" class="form-control" placeholder="Enter Client Email" name="client_email" value="{{ $lead->client_email }}">
                                             </div>
                                             <div class="mb-3">
@@ -99,7 +117,11 @@
                                                     <option value="Project Type"> Project Type </option>
                                                     <option value="Home" {{ $lead->project_type == 'Home' ? 'selected' : '' }}>Home</option>
                                                     <option value="Pool" {{ $lead->project_type == 'Pool' ? 'selected' : '' }}>Pool</option>
+<<<<<<< HEAD
                                                     <option value="Remode" {{ $lead->project_type == 'Remode' ? 'selected' : '' }}>Remode</option>
+=======
+                                                    <option value="Remodel" {{ $lead->project_type == 'Remodel' ? 'selected' : '' }}>Remodel</option>
+>>>>>>> 721f0e5 (First commit)
                                                     <option value="Addition" {{ $lead->project_type == 'Addition' ? 'selected' : '' }}>Addition</option>
                                                 </select>
                                             </div>

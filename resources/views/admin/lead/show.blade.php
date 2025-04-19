@@ -27,8 +27,13 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Leads</a></li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.manage.lead') }}">Leads</a></li>
+>>>>>>> 721f0e5 (First commit)
                                     <li class="breadcrumb-item active">Lead Detail</li>
                                 </ol>
                             </div>
@@ -43,6 +48,10 @@
                         </div>
                         <div class="w-75 mb-4">
                             <a href="{{ route('admin.edit.lead', $lead->faker_id) }}" class="float-end btn btn-success btn-sm ms-3">Edit Lead</a>
+<<<<<<< HEAD
+=======
+{{--                            <a href="{{ route('admin.mature.lead', $lead->faker_id) }}" class="float-end btn btn-success btn-sm ms-3">Client Task</a>--}}
+>>>>>>> 721f0e5 (First commit)
                             <a href="{{ route('admin.client.followUp', $lead->faker_id) }}" class="float-end btn btn-success btn-sm ms-3">Schedule a Follow Up</a>
                         </div>
 
@@ -56,22 +65,34 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-3">
+<<<<<<< HEAD
                                                 <label for="" class="form-label">Client Name</label>
                                                 <input type="text" class="form-control" placeholder="Enter Client Name" name="client_name" value="{{ $lead->client_name }}" readonly>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="" class="form-label">Client Phone </label>
+=======
+                                                <label for="" class="form-label">Lead Name</label>
+                                                <input type="text" class="form-control" placeholder="Enter Client Name" name="client_name" value="{{ $lead->client_name }}" readonly>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Lead Phone </label>
+>>>>>>> 721f0e5 (First commit)
                                                 <input type="text" class="form-control" placeholder="Enter Client Phone" name="client_phone" value="{{ $lead->client_phone }}" readonly>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="example-select" class="form-label">Status</label>
+<<<<<<< HEAD
                                                 <select class="form-select" name="status" id="example-select" disabled>
                                                     <option value="">Select Status</option>
                                                     <option value="pending" {{ $lead->status == 'pending' ? 'selected' : '' }}>Pending</option>
                                                     <option value="Approved" {{ $lead->status == 'Approved' ? 'selected' : '' }}>Approved</option>
                                                     <option value="Reject" {{ $lead->status == 'Reject' ? 'selected' : '' }}>Reject</option>
                                                 </select>
+=======
+                                                <input type="text" class="form-control" placeholder="Status" name="client_phone" value="{{ $lead->status }}" readonly>
+>>>>>>> 721f0e5 (First commit)
                                             </div>
 
 
@@ -79,7 +100,11 @@
 
                                         <div class="col-lg-6">
                                             <div class="mb-3">
+<<<<<<< HEAD
                                                 <label class="form-label">Client Email</label>
+=======
+                                                <label class="form-label">Lead Email</label>
+>>>>>>> 721f0e5 (First commit)
                                                 <input type="email" class="form-control" placeholder="Enter Client Email" name="client_email" value="{{ $lead->client_email }}" readonly>
                                             </div>
 
@@ -89,6 +114,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="assign-to" class="form-label">Assign To</label>
+<<<<<<< HEAD
                                                 <select class="form-control select2" name="assign_id[]" id="assign-to" multiple disabled>
                                                     @foreach($users as $user)
                                                         <option value="{{ $user->id }}"
@@ -97,6 +123,14 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+=======
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="assigned-users"
+                                                    value="{{ $lead->assignedUsers->pluck('name')->join(', ') }}"
+                                                    readonly>
+>>>>>>> 721f0e5 (First commit)
                                             </div>
 
 
@@ -105,6 +139,7 @@
                                         <div class="col-12">
                                             <div class="mb-3" >
                                                 <label for="example-select" class="form-label">Project</label>
+<<<<<<< HEAD
                                                 <select class="form-select" name="project_type" id="example-select" disabled>
                                                     <option value="Project Type"> Project Type </option>
                                                     <option value="Home" {{ $lead->project_type == 'Home' ? 'selected' : '' }}>Home</option>
@@ -112,6 +147,9 @@
                                                     <option value="Remode" {{ $lead->project_type == 'Remode' ? 'selected' : '' }}>Remode</option>
                                                     <option value="Addition" {{ $lead->project_type == 'Addition' ? 'selected' : '' }}>Addition</option>
                                                 </select>
+=======
+                                                <input type="text" class="form-control" placeholder="Project Type" name="project_type" value="{{ $lead->project_type }}" readonly>
+>>>>>>> 721f0e5 (First commit)
                                             </div>
                                         <div class="mb-3">
                                             <label for="" class="form-label">Notes</label>

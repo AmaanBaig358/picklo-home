@@ -25,6 +25,7 @@ class Project extends Model
     {
         return FakerURL::id_e($this->id);
     }
+<<<<<<< HEAD
 
     public function showPreTasks()
     {
@@ -36,4 +37,6 @@ class Project extends Model
     {
         return $this->hasMany(Task::class);
     }
+=======
+>>>>>>> 721f0e5 (First commit)
 }

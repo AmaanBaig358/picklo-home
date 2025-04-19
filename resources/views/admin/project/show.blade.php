@@ -79,8 +79,13 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+<<<<<<< HEAD
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Picklo Homes</a></li>
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Projects</a></li>
+=======
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Picklo Homes</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.manage.client.project', $project->faker_id) }}">Projects</a></li>
+>>>>>>> 721f0e5 (First commit)
                                     <li class="breadcrumb-item active">{{$title}}</li>
                                 </ol>
                             </div>
@@ -90,7 +95,11 @@
                                 </div>
                                 <div class="w-50">
                                     <a href="{{ route('admin.edit.client.project', $project->faker_id) }}" class="float-end btn btn-success btn-sm ms-3">Edit Project</a>
+<<<<<<< HEAD
                                     <a href="{{ route('project.tasks.save', $project->faker_id) }}" class="float-end btn btn-success btn-sm ms-3">Task</a>
+=======
+                                    <a href="javascript:" class="float-end btn btn-success btn-sm ms-3">Show Task</a>
+>>>>>>> 721f0e5 (First commit)
                                     <a href="javascript:" class="float-end btn btn-success btn-sm ms-3">Manage Phases</a>
                                 </div>
                             </div>

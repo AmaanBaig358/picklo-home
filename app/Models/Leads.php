@@ -25,9 +25,15 @@ class Leads extends Model
     }
 
     public function tasks()
+<<<<<<< HEAD
     {
         return $this->belongsToMany(PreTask::class, 'client_task', 'client_id', 'task_id')->withTimestamps();
     }
+=======
+{
+    return $this->belongsToMany(PreTask::class, 'client_task', 'client_id', 'task_id')->withTimestamps();
+}
+>>>>>>> 721f0e5 (First commit)
 
     public function cards()
     {
